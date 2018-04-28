@@ -259,61 +259,9 @@ class eSheep
       {
         this.dragging = false;
       }
-      else if(this.infobox)
-      {
-        this.DOMinfo.style.display = "none";
-        this.infobox = false;
-      }
-      else
-      {
-        this.DOMinfo.style.left = Math.min(this.screenW-200, Math.max(0, parseInt(this.imageX + this.imageW/2 - parseInt(this.DOMinfo.style.width)/2))) + "px";
-        this.DOMinfo.style.top = parseInt(this.imageY - parseInt(this.DOMinfo.style.height)) + "px";
-        this.DOMinfo.style.display = "block";
-        this.infobox = true;
-      }
+
     }.bind(this));
-    // Mouse released over the info box
-    this.DOMinfo.addEventListener("mouseup", function(e) {
-      this.DOMinfo.style.display = "none";
-      this.infobox = false;
-    }.bind(this));
-      // Create About box
-    var attribute =
-      "width:200px;" +
-      "height:100px;" +
-      "position:fixed;" +
-      "top:100px;left:10px;" +
-      "display:none;" +
-      "border-width:2px;" +
-      "border-radius:5px;" +
-      "border-style:ridge;" +
-      "border-color:#0000ab;" +
-      "text-align:center;" +
-      "text-shadow: 1px 1px 3px #ffff88;" +
-      "box-shadow: 3px 3px 10px #888888;" +
-      "color:black;" +
-      "opacity:0.9;" +
-      "z-index:9999;" +
-      "overflow:auto;" +
-      "background: linear-gradient(to bottom right, rgba(128,128,255,0.7), rgba(200,200,255,0.4));";
-    this.DOMinfo.setAttribute("style",attribute);
-    var htmlT = document.createElement("b").appendChild(document.createTextNode("eSheep"));
-    var htmlV = document.createElement("sup");
-    var htmlL = document.createElement("a");
-    htmlV.appendChild(document.createTextNode("ver: " + VERSION));
-    htmlV.setAttribute("style", "float:right");
-    htmlL.appendChild(document.createTextNode("http://esheep.petrucci.ch"));
-    htmlL.setAttribute("href", "http://esheep.petrucci.ch");
-    htmlL.setAttribute("target", "_blank");
-    this.DOMinfo.appendChild(htmlT);
-    this.DOMinfo.appendChild(htmlV);
-    this.DOMinfo.appendChild(document.createElement("br"));
-    this.DOMinfo.appendChild(document.createElement("hr"));
-    this.DOMinfo.appendChild(document.createTextNode("Visit the home page of this lovely sheep:"));
-    this.DOMinfo.appendChild(document.createElement("br"));
-    this.DOMinfo.appendChild(htmlL);
-      // Add about and sheep elements to the body
-    document.body.appendChild(this.DOMinfo);
+
     document.body.appendChild(this.DOMdiv);
   };
 
